@@ -42,10 +42,21 @@ For each one record: example, why it matters, and clean/preserve/task-dependent.
 
 
 ## Lab 2 — Parameter audit
+|## Lab 2 — Parameter audit
+
 | Checkpoint | Total params | Embeddings % | Other notes |
 |---|---:|---:|---|
-| mBERT | | | |
-| CAMeLBERT | | | |
+| mBERT | 177,853,440 | 51.84% | Large multilingual vocabulary increases embedding parameters. |
+| CAMeLBERT | 109,081,344 | 21.49% | Arabic-focused vocabulary results in a much smaller embedding table. |
+
+### Lab 2 — Attention findings
+
+- Scaled dot-product attention matched PyTorch with max absolute difference `2.384e-7`, below the required `1e-6` tolerance.
+- Multi-Head Attention preserved the expected `(batch, sequence, hidden)` shape: `(1, 4, 8) → (1, 4, 8)`.
+- The causal mask was verified as lower triangular, blocking all future positions.
+- PAD attention mass was `2.937145` without a padding mask and `0.000000` with the correct mask.
+- The embedding share differs mainly because mBERT has a much larger multilingual vocabulary, while CAMeLBERT uses a smaller Arabic-focused vocabulary.
+
 
 ## Lab 4 — Dialect audit
 - Distribution:

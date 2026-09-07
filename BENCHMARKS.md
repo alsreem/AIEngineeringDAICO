@@ -19,6 +19,43 @@
 ### Decision
 
 XLM-R was selected as the most balanced bilingual tokenizer. CAMeLBERT has the best Arabic fertility, but its English fertility is substantially worse. DistilBERT performs well on English but poorly on Arabic. XLM-R provides the strongest overall Arabic/English balance with relatively low sequence lengths.
+## Lab 2 — Transformer Anatomy
+
+### Attention equivalence
+
+| Check | Result |
+|---|---:|
+| Max absolute difference vs PyTorch | 0.0000002384 |
+| atol requirement | 1e-6 |
+| Numerical equivalence | PASS |
+
+### Multi-Head Attention
+
+| Input shape | Output shape |
+|---|---|
+| (1, 4, 8) | (1, 4, 8) |
+
+### Parameter audit
+
+| Checkpoint | Total params | Embeddings | Attention | FFN | Norms | Pooler |
+|---|---:|---:|---:|---:|---:|---:|
+| mBERT | 177,853,440 | 92,208,384 | 28,366,848 | 56,669,184 | 18,432 | 590,592 |
+| CAMeLBERT | 109,081,344 | 23,436,288 | 28,366,848 | 56,669,184 | 18,432 | 590,592 |
+
+### Causal mask
+
+- Mask structure: lower triangular.
+- Future positions blocked: `True`.
+- Model family: Decoder-style causal attention.
+
+### PAD attention leakage
+
+| Configuration | PAD attention mass |
+|---|---:|
+| Without padding mask | 2.937145 |
+| With padding mask | 0.000000 |
+
+**Finding:** Without a correct padding mask, attention can leak onto PAD positions. Applying the padding mask reduced PAD attention mass to zero.
 
 
 ## Lab 3 — Models
