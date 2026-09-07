@@ -3,15 +3,23 @@
 > Fill these tables from **your own runs**. Do not copy course reference numbers.
 
 ## Lab 1 — Tokenizer audit
-| Tokenizer | AR fertility | EN fertility | AR p95 len | EN p95 len | AR UNK rate |
-|---|---:|---:|---:|---:|---:|
-| mBERT | | | | | |
-| XLM-R | | | | | |
-| CAMeLBERT | | | | | |
-| DistilBERT | | | | | |
+## Lab 1 — Tokenizer Audit
 
-- Golden preprocessing: ___ / 25 passed
-- PII masking recall: ___ / 60 = ___%
+| Tokenizer | Language | Samples | Fertility | Mean length | P95 length |
+|---|---|---:|---:|---:|---:|
+| mBERT | Arabic | 7200 | 2.153 | 18.98 | 27 |
+| mBERT | English | 4800 | 1.510 | 16.48 | 25 |
+| XLM-R | Arabic | 7200 | 1.672 | 15.19 | 21 |
+| XLM-R | English | 4800 | 1.434 | 15.76 | 23 |
+| CAMeLBERT | Arabic | 7200 | 1.405 | 13.08 | 20 |
+| CAMeLBERT | English | 4800 | 2.705 | 27.94 | 38 |
+| DistilBERT | Arabic | 7200 | 4.527 | 37.71 | 47 |
+| DistilBERT | English | 4800 | 1.298 | 14.45 | 21 |
+
+### Decision
+
+XLM-R was selected as the most balanced bilingual tokenizer. CAMeLBERT has the best Arabic fertility, but its English fertility is substantially worse. DistilBERT performs well on English but poorly on Arabic. XLM-R provides the strongest overall Arabic/English balance with relatively low sequence lengths.
+
 
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |
