@@ -2,7 +2,7 @@
 
 > Fill these tables from **your own runs**. Do not copy course reference numbers.
 
-## Lab 1 — Tokenizer audit
+
 ## Lab 1 — Tokenizer Audit
 
 | Tokenizer | Language | Samples | Fertility | Mean length | P95 length |
@@ -61,7 +61,7 @@ XLM-R was selected as the most balanced bilingual tokenizer. CAMeLBERT has the b
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |
 |---|---|---:|---:|---:|
-| TF-IDF + LinearSVC | macro-F1 | | | |
+| TF-IDF + LinearSVC | macro-F1 |1.0000 | 1.0000| |
 | Topic classifier | macro-F1 | | | |
 | NER | entity-F1 | | | |
 | QA | span/null smoke | | | |
