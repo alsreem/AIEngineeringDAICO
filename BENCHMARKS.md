@@ -68,7 +68,7 @@ XLM-R was selected as the most balanced bilingual tokenizer. CAMeLBERT has the b
 
 ## Lab 4 — Arabic model bake-off
 | Checkpoint | macro-F1 all | Gulf | MSA | AR fertility |
-|---|---:|---:|---:|---:|
+|---|---|---:|---:|---:|
 | multilingual incumbent | 0.8650 | 0.8420 | 0.8880 | 2.15 |
 | Arabic dialect-aware | 0.9120 | 0.9250 | 0.9010 | 1.40 |
 | optional third model | 0.8950 | 0.8800 | 0.9100 | 1.67 |
