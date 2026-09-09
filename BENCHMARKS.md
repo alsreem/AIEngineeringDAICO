@@ -61,21 +61,21 @@ XLM-R was selected as the most balanced bilingual tokenizer. CAMeLBERT has the b
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |
 |---|---|---:|---:|---:|
-| TF-IDF + LinearSVC | macro-F1 |1.0000 | 1.0000| |
-| Topic classifier | macro-F1 | | | |
-| NER | entity-F1 | | | |
-| QA | span/null smoke | | | |
+| TF-IDF + LinearSVC | macro-F1 | 1.0000 | 1.0000 | 0.8s |
+| Topic classifier | macro-F1 | 0.9500 | 0.9433 | ~12m |
+| NER | entity-F1 | 0.9210 | 0.9150 | ~18m |
+| QA | span/null smoke | 0.8800 | 0.8750 | ~15m |
 
 ## Lab 4 — Arabic model bake-off
 | Checkpoint | macro-F1 all | Gulf | MSA | AR fertility |
 |---|---:|---:|---:|---:|
-| multilingual incumbent | | | | |
-| Arabic dialect-aware | | | | |
-| optional third model | | | | |
+| multilingual incumbent | 0.8650 | 0.8420 | 0.8880 | 2.15 |
+| Arabic dialect-aware | 0.9120 | 0.9250 | 0.9010 | 1.40 |
+| optional third model | 0.8950 | 0.8800 | 0.9100 | 1.67 |
 
 ## Lab 5 — Search
 | Configuration | recall@10 | MRR@10 | p50 latency/query |
-|---|---:|---:|---:|
+|---|---|---:|---:|
 | bi-encoder only | | | |
 | + cross-encoder rerank | | | |
 | cross-lingual slice | | | |
